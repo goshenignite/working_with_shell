@@ -1,0 +1,13 @@
+name: Check Windows Version
+
+on: push
+jobs:
+  check-version:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check Windows Version
+      run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
